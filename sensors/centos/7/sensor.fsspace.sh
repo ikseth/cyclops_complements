@@ -20,7 +20,7 @@ _space=$( df -l $_fs | awk -v _st="$_status" -v _thd="$_thdown" -v _thu="$_thup"
                         _s="UP"
                         if ( _fs != "" ) { _out=$(NF-1)"%" }
                 }
-                if ( $(NF-1) >= _thd && $(NF-1) =< _thu ) {
+                if ( $(NF-1) >= _thd && $(NF-1) <= _thu ) {
                         if ( _fs == "" ) {
                                 _out=_out""$NF" "$(NF-1)"% "
                         } else {
