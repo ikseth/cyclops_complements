@@ -3,6 +3,8 @@
 #@HELP@ This Sensor need to control the OS to execute the right command
 #@DAEMON@_sensor_name="DAEMON"
 
+[ "$1" == "help" ] && echo "HELP: Service sensor: [SERVICE NAME]" && exit 0
+
 _sensor_name=$1
 _sensor_status="CHECKING"
 
