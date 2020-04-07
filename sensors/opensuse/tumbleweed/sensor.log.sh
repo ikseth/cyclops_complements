@@ -5,8 +5,6 @@
 _sensor_name=$1
 _sensor_status="CHECKING"
 
-source /etc/cyclops/global.cfg ## OWN EXEC ##
-
 [ -z "$2" ] && _logdir="/var/log" || _logdir=$2
 [ -z "$3" ] && _logfile="messages" || _logfile=$3
 [ "$4" == "FAIL" ] && _snsmsg="FAIL" || _snsmsg="WARN"

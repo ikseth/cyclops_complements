@@ -1,11 +1,12 @@
 #!/bin/bash
-
-[ [ "$1" == "help" ] && echo "HELP: mon time main sensor" && exit 0
+#@HELP@
+#@SCOPY@
+#@LOCAL@
 
 _sensor_name="mon_time"
 _sensor_status="CHECKING"
 
-source /etc/cyclops/global.cfg ## OWN EXEC ##
+[ "$1" == "help" ] && echo "HELP: base monitor time sensor" && exit
 
 _sensor_status=`date +%H.%M.%S` 
 

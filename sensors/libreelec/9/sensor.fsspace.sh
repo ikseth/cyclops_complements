@@ -10,7 +10,7 @@ _sensor_status="CHECKING"
 [ -z "$4" ] && _thup=85 || _thup=$4
 [ "$4" == "ALERT" ] && _status="FAIL" || _status="MARK"
 
-_space=$( df -l $_fs | awk -v _st="$_status" -v _thd="$_thdown" -v _thu="$_thup" -v _fs="$_fs" '
+_space=$( df $_fs | awk -v _st="$_status" -v _thd="$_thdown" -v _thu="$_thup" -v _fs="$_fs" '
         BEGIN {
                 _s="CHECK"
         } $(NF-1) ~ "[0-9]" {

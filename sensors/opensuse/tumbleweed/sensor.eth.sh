@@ -10,7 +10,7 @@ _sensor_status="CHECKING"
 
 _netdev=$2
 [ -z "$3" ] && _warn_level="30" || _warn_level=$3
-[ -z "$4" ] && _tmp_file="/tmp/$_netdev.cyc" || _tmp_file=$4/$_netdev.cyc
+[ -z "$4" ] && _tmp_file="/opt/cyclops/local/temp/$_netdev.cyc" || _tmp_file=$4/$_netdev.cyc
 _net_maxout=$5
 [ -z "$6" ] && _out_msr="per" || _out_msr=$6
 
@@ -85,7 +85,7 @@ else
                         _sensor_status="DISABLE na/na"
                         echo $_net_end > $_tmp_file
                 else
-                        [ ! -z "$_ifstatus" ] && _sensor_status=$_ifstatus
+                        [ -z "$_ifstatus" ] && _sensor_status="DISABLE no if data" || _sensor_status=$_ifstatus 
                 fi
         fi
 fi

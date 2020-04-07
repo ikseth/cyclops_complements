@@ -31,7 +31,7 @@ else
                         if ( f == 0 ) {
                                 print "DISABLE snr stng"
                         } else {
-                                _load=(_load*100)/_c
+                                _load=int((_load*100)/_c)
                                 if ( _load > 100 ) { _status=_s } else { _status="UP" }
                                 print _status" "_load"%"
                         }

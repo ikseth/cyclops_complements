@@ -10,7 +10,9 @@ if [ -z "$_sensor_cmd" ]
 then
 	_sensor_name="DISABLE no cmd"
 else
-	_cpu=$( $_sensor_cmd 1 1 | awk 'END { print 100 - int($NF) }' )
+	_cpu=$( $_sensor_cmd 1 1 | awk '$1 == "Average:" { print int($(NF-1)) }' )
+
+	let _cpu=100-$_cpu
 
 	if [ -z "$_cpu" ]
 	then
