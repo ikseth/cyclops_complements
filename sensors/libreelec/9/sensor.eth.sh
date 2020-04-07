@@ -52,7 +52,8 @@ else
                                         }
                                 } {
                                         if ( _tt != 0 ) {
-                                                if ( _om == "per" ) { _in=int(((((e[1]-i[1])/_tt)*100)/_top)) ; _out=int(((((e[2]-i[2])/_tt)*100)/_top)) }
+                                                _inper=int(((((e[1]-i[1])/_tt)*100)/_top)) ; _outper=int(((((e[2]-i[2])/_tt)*100)/_top))
+                                                if ( _om == "per" ) { _in=_inper ; _out=_outper }
                                                 if ( _om == "bits" ) { _in=e[1]-i[1] ; _out=e[2]-i[2] }
                                                 if ( _om == "KB" ) { _in=int((((e[1]-i[1])/8)/1024)) ; _out=int((((e[2]-i[2])/8)/1024)) }
                                                 if ( _om == "MB" ) { _in=int((((e[1]-i[1])/8)/1024^2)) ; _out=int((((e[2]-i[2])/8)/1024^2)) }
@@ -65,7 +66,7 @@ else
                                         if ( _st ~ "DISABLE" ) {
                                                 print _st
                                         } else {
-                                                if ( _in > _wl || _out > _wl ) { _st="MARK" } ;
+                                                if ( _inper > _wl || _outper > _wl ) { _st="MARK" } ;
                                                 print _st" "_in"/"_out
                                         }
                                 }' )
