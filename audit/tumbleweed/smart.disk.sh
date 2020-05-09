@@ -7,7 +7,7 @@ _smart_cmd=$( which smartctl 2>/dev/null )
 
 if [ ! -z "$_smart_cmd" ] 
 then
-	for _disk in $( lsblk  --nodeps --noheadings | awk '{ print $1 }' ) 
+	for _disk in $( lsblk  --nodeps --noheadings | awk '$1 !~ "loop" { print $1 }' ) 
 	do 
 		_data=$( $_smart_cmd -i /dev/$_disk | egrep "Vendor|Product|Serial|Firmware|Revision|Capacity|Model" 2>/dev/null ) 
 		_check_data=$( echo $_data | grep "NETAPP" | wc -l )
