@@ -11,7 +11,7 @@ _sensor_status="CHECKING"
 [ -z "$1" ] && _sensor_name="a2log" || _sensor_name="a2log_"$1
 [ -z "$2" ] && _logdir="/var/log" || _logdir=$2
 [ -z "$3" ] && _logfile="messages" || _logfile=$3
-[ "$4" == "FAIL" ] && _snsmsg="FAIL" || _snsmsg="WARN"
+[ "$4" == "FAIL" ] && _snsmsg="FAIL" || _snsmsg="MARK"
 [ -z "$5" ] && _logtmp_file="/tmp/logtmt.cyc" || _logtmp_file=$5
 [ -z "$7" ] && _logstr="error" || _logstr=$7
 _logty=$6
